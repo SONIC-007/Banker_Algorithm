@@ -12,7 +12,7 @@ An interactive, visual simulator for the **Banker's Algorithm** — a classic de
 - **Graphical Analysis** — Recharts-powered bar and area charts visualizing resource allocation, need, and availability
 - **Preset Examples** — Load the classic Silberschatz textbook example (safe), an unsafe-state example, or generate a random scenario
 - **Input Validation** — Real-time validation ensures matrices are consistent (e.g., Allocation ≤ Max, non-negative integers)
-- **Dark / Light Theme** — Toggle between a sleek dark mode and a clean light mode
+- **Dark / Light Theme** — Toggle between a sleek dark mode
 - **Educational Section** — Collapsible panel explaining deadlock concepts, the Banker's Algorithm, and the Safety Algorithm
 - **Execution Logs** — Timestamped log panel showing every check and allocation during the simulation
 - **Responsive Dashboard** — CSS Grid layout with tabs (Simulation / Graphs / Logs), compact mode toggle, and a floating "Run" button
