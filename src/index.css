@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.35);
+}
+
+/* ===== Dashboard Grid Layout ===== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(340px, 2fr) 3fr;
+  gap: 0;
+  height: calc(100vh - 56px);
+  overflow: hidden;
+}
+
+@media (max-width: 1023px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: auto;
+  }
+}
+
+/* ===== Panel Styling ===== */
+.panel {
+  @apply bg-white/60 dark:bg-gray-900/40 backdrop-blur-md;
+  border-right: 1px solid rgba(148, 130, 186, 0.1);
+}
+
+.panel-scroll {
+  overflow-y: auto;
+  height: 100%;
+  scrollbar-gutter: stable;
+}
+
+@media (max-width: 1023px) {
+  .panel {
+    border-right: none;
+    border-bottom: 1px solid rgba(148, 130, 186, 0.1);
+  }
+
+  .panel-scroll {
+    height: auto;
+    max-height: none;
+  }
+}
+
+/* ===== Tab Bar ===== */
+.tab-bar {
+  @apply flex gap-1 p-1 rounded-xl bg-gray-100/80 dark:bg-gray-800/60;
+}
+
+.tab-btn {
+  @apply flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-gray-500 dark:text-gray-400 transition-all duration-200 cursor-pointer select-none;
+}
+
+.tab-btn:hover {
+  @apply text-gray-700 dark:text-gray-200 bg-white/50 dark:bg-gray-700/40;
+}
+
+.tab-btn.tab-active {
+  @apply bg-white dark:bg-gray-700 text-violet-600 dark:text-violet-400 shadow-sm;
+}
+
+/* ===== Section Styling (softer cards) ===== */
+.section-card {
+  @apply rounded-xl border border-gray-200/60 dark:border-gray-700/30 bg-white/40 dark:bg-gray-800/30;
+}
+
+/* ===== Section Dividers ===== */
+.section-divider {
+  @apply h-px w-full;
+  background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.15), transparent);
+}
+
+/* ===== Gradient Text ===== */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-500 via-purple-500 to-indigo-500;
+}
+
+/* ===== Matrix Cell ===== */
+.matrix-cell {
+  @apply w-14 h-10 text-center font-mono text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-transparent transition-all duration-150;
+}
+
+.matrix-cell-compact {
+  @apply w-11 h-8 text-center font-mono text-xs border border-gray-200 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-transparent transition-all duration-150;
+}
+
+/* ===== Badges ===== */
+.badge-safe {
+  @apply bg-emerald-500/15 text-emerald-500 dark:text-emerald-400 border border-emerald-500/25 px-3 py-1.5 rounded-full font-bold text-sm;
+}
+
+.badge-deadlock {
+  @apply bg-red-500/15 text-red-500 dark:text-red-400 border border-red-500/25 px-3 py-1.5 rounded-full font-bold text-sm;
+}
+
+/* ===== Log Entry ===== */
+.log-entry {
+  @apply font-mono text-xs py-1 px-2 rounded;
+}
+
+/* ===== Floating Action Button ===== */
+.fab {
+  @apply fixed z-50 flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-semibold shadow-xl shadow-violet-500/30 transition-all duration-300 hover:scale-105 active:scale-95;
+  bottom: 24px;
+  right: 24px;
+}
+
+@media (max-width: 1023px) {
+  .fab {
+    bottom: 16px;
+    right: 16px;
+    @apply px-4 py-2.5 text-sm rounded-xl;
+  }
+}
+
+/* ===== Subtle Animations ===== */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 4px rgba(139, 92, 246, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.35);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.3s ease-out;
+}
+
+/* ===== Body ===== */
+body {
+  @apply font-sans antialiased overflow-hidden;
+}
+
+@media (max-width: 1023px) {
+  body {
+    overflow: auto;
+  }
+}
+
+/* ===== Misc ===== */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
