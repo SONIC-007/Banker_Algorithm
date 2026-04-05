@@ -33,6 +33,7 @@ function App() {
     ]);
 
     // Simulation state
+    //Developed user interface for input matrices 
     const [result, setResult] = useState(null);
     const [currentStep, setCurrentStep] = useState(-1);
     const [isRunning, setIsRunning] = useState(false);
