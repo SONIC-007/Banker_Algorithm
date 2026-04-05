@@ -34,33 +34,7 @@ function App() {
 
     // Simulation state
     //Developed user interface for input matrices 
-    const [result, setResult] = useState(null);
-    const [currentStep, setCurrentStep] = useState(-1);
-    const [isRunning, setIsRunning] = useState(false);
-    const [speed, setSpeed] = useState(800);
-    const [logs, setLogs] = useState([]);
-    const [errors, setErrors] = useState([]);
-    const intervalRef = useRef(null);
-
-    // Dashboard state
-    const [activeTab, setActiveTab] = useState('simulation');
-    const [compact, setCompact] = useState(false);
-
-    // Memoized calculations
-    const needMatrix = useMemo(
-        () => calculateNeedMatrix(max, allocation),
-        [max, allocation]
-    );
-
-    const currentStepData = useMemo(
-        () => result && currentStep >= 0 ? result.steps[currentStep] : null,
-        [result, currentStep]
-    );
-
-    // Dark mode
-    useEffect(() => {
-        document.documentElement.classList.toggle('dark', darkMode);
-    }, [darkMode]);
+    
 
     // Resize matrices
     const resizeMatrices = useCallback((newP, newR) => {
